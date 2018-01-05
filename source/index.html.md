@@ -45,7 +45,7 @@ Base URLs:
     - Token URL = [https://api.logup.co/oauth/token](https://api.logup.co/oauth/token)
 
 
-- HTTP Authentication, scheme: bearer 
+- HTTP Authentication, scheme: Bearer 
 
 
 <h1 id="LogUp-Documentation-actor">actor</h1>
@@ -54,7 +54,7 @@ Base URLs:
 Endpoint to be used to manage actors
 
 
-## Delete_actor_db_values
+## Delete actor db values
 
 
 <a id="opIdDelete actor db values"></a>
