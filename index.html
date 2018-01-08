@@ -225,76 +225,38 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#LogUp-Documentation" class="toc-h1 toc-link" data-title="LogUp Documentation v1.0.0">LogUp Documentation v1.0.0</a>
+            <a href="#LogUp-Documentation" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#LogUp-Documentation-authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#oauth2" class="toc-h2 toc-link" data-title="OAuth2">OAuth2</a>
+                  </li>
+                  <li>
+                    <a href="#http-authentication" class="toc-h2 toc-link" data-title="HTTP Authentication">HTTP Authentication</a>
+                  </li>
+              </ul>
           </li>
           <li>
-            <a href="#LogUp-Documentation-actor" class="toc-h1 toc-link" data-title="actor">actor</a>
+            <a href="#LogUp-Documentation-actor" class="toc-h1 toc-link" data-title="Actor">Actor</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#delete-actor-db-values" class="toc-h2 toc-link" data-title="Delete actor db values">Delete actor db values</a>
                   </li>
                   <li>
-                    <a href="#get_actor_values_saved_into_db" class="toc-h2 toc-link" data-title="Get_actor_values_saved_into_db">Get_actor_values_saved_into_db</a>
+                    <a href="#get-actor-db-values" class="toc-h2 toc-link" data-title="Get Actor Db Values">Get Actor Db Values</a>
                   </li>
                   <li>
-                    <a href="#update_actor_db_values" class="toc-h2 toc-link" data-title="Update_actor_db_values">Update_actor_db_values</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#LogUp-Documentation-oauth" class="toc-h1 toc-link" data-title="oauth">oauth</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#create_an_authentication_token" class="toc-h2 toc-link" data-title="Create_an_authentication_token">Create_an_authentication_token</a>
+                    <a href="#update-actor-db-values" class="toc-h2 toc-link" data-title="Update Actor Db Values">Update Actor Db Values</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#LogUp-Documentation-verification" class="toc-h1 toc-link" data-title="verification">verification</a>
+            <a href="#LogUp-Documentation-verification" class="toc-h1 toc-link" data-title="Verification">Verification</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#verify_logup_token_received" class="toc-h2 toc-link" data-title="Verify_logup_token_received">Verify_logup_token_received</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#schemas" class="toc-h1 toc-link" data-title="Schemas">Schemas</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#tocSaccesstoken" class="toc-h2 toc-link" data-title="AccessToken">AccessToken</a>
-                  </li>
-                  <li>
-                    <a href="#tocSactordbs" class="toc-h2 toc-link" data-title="ActorDbs">ActorDbs</a>
-                  </li>
-                  <li>
-                    <a href="#tocScreateaccesstoken" class="toc-h2 toc-link" data-title="CreateAccessToken">CreateAccessToken</a>
-                  </li>
-                  <li>
-                    <a href="#tocSdbstring" class="toc-h2 toc-link" data-title="DbString">DbString</a>
-                  </li>
-                  <li>
-                    <a href="#tocSdbinteger" class="toc-h2 toc-link" data-title="DbInteger">DbInteger</a>
-                  </li>
-                  <li>
-                    <a href="#tocSdbboolean" class="toc-h2 toc-link" data-title="DbBoolean">DbBoolean</a>
-                  </li>
-                  <li>
-                    <a href="#tocSdbupdatedata" class="toc-h2 toc-link" data-title="DBUpdateData">DBUpdateData</a>
-                  </li>
-                  <li>
-                    <a href="#tocSdbupdatestring" class="toc-h2 toc-link" data-title="DbUpdateString">DbUpdateString</a>
-                  </li>
-                  <li>
-                    <a href="#tocSdbupdateinteger" class="toc-h2 toc-link" data-title="DbUpdateInteger">DbUpdateInteger</a>
-                  </li>
-                  <li>
-                    <a href="#tocSdbupdateboolean" class="toc-h2 toc-link" data-title="DbUpdateBoolean">DbUpdateBoolean</a>
-                  </li>
-                  <li>
-                    <a href="#tocSverification" class="toc-h2 toc-link" data-title="Verification">Verification</a>
+                    <a href="#verify-logup-token" class="toc-h2 toc-link" data-title="Verify Logup Token">Verify Logup Token</a>
                   </li>
               </ul>
           </li>
@@ -305,33 +267,218 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="LogUp-Documentation">LogUp Documentation v1.0.0</h1>
+        <h1 id="LogUp-Documentation">Introduction</h1>
 
 <blockquote>
 <p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
 </blockquote>
 
-<p>LogUp Public API documentation</p>
+<p>The LogUp API is organized around REST. To interact with our APIs you have to use the &quot;idGate&quot; and &quot;secretKey&quot; received
+after the gate creation. Remember to never expose your keys in any public website&#39;s client-side code.
+All API responses is in JSON format. </p>
 
-<p>Base URLs:</p>
+<p>Base URLs:
+<a href="https://api.logup.co/1_0">https://api.logup.co/1_0</a></p>
 
+<h1 id="LogUp-Documentation-authentication">Authentication</h1>
+
+<p>This API supports two modes of authentication:
 <ul>
-<li><a href="https://api.logup.co/dev">https://api.logup.co/dev</a></li>
-</ul>
-<h1 id='authentication'>Authentication</h1>
-<ul>
-<li><p>oAuth2 authentication. </p>
+    <li><a href="#oauth2">OAuth2 Authentication</a>: Create authentication token to be used as HTTP Authentication</li>
+    <li><a href="#http-authentication">HTTP Authentication</a>: Useful to access all APIs</li>
+</ul></p>
+<h2 id='oauth2'>OAuth2</h2>
+<p><a id="opId OAuth2 authentication"></a>
+Retrieve the OAuth Access token to be used as HTTP Authentication Header. </p>
+<h3 id='create-the-authentication-token'>Create The Authentication Token</h3>
+<p><a id="opIdCreate The Authentication Token"></a></p>
 
-<ul>
-<li>Flow: clientCredentials</li>
-<li>Token URL = <a href="https://api.logup.co/oauth/token">https://api.logup.co/oauth/token</a></li>
-</ul></li>
-<li><p>HTTP Authentication, scheme: Bearer </p></li>
-</ul>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl -X POST https://api.logup.co/1_0/oauth/token <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span>
 
-<h1 id="LogUp-Documentation-actor">actor</h1>
 
-<p>Endpoint to be used to manage actors</p>
+</code></pre><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.logup.co/1_0/oauth/token</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.logup.co</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span>
+
+
+<span class="p">};</span>
+
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.logup.co/1_0/oauth/token'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'post'</span><span class="p">,</span>
+
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+
+</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="s1">'{
+  "client_id": "string",
+  "client_secret": "string",
+  "grant_type": "client_credentials"
+}'</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span>
+
+
+<span class="p">};</span>
+
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/1_0/oauth/token'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
+<span class="p">}</span>
+
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.logup.co/1_0/oauth/token'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.logup.co/1_0/oauth/token'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+
+
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+
+</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/1_0/oauth/token"</span><span class="o">);</span>
+<span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
+<span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
+<span class="n">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span>
+    <span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+<span class="n">String</span> <span class="n">inputLine</span><span class="o">;</span>
+<span class="n">StringBuffer</span> <span class="n">response</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
+<span class="k">while</span> <span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">response</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+
+
+</code></pre>
+<p><code>POST /oauth/token</code></p>
+
+<p><em>Create the authentication token</em></p>
+
+<blockquote>
+<p>Body parameter</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_credentials"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="Create_an_authentication_token-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_id</td>
+<td>body</td>
+<td>string</td>
+<td>true</td>
+<td>Gate&#39;s id received after you created your gate</td>
+</tr>
+<tr>
+<td>client_secret</td>
+<td>body</td>
+<td>string</td>
+<td>true</td>
+<td>Secret key received after you created your gate</td>
+</tr>
+<tr>
+<td>grant_type</td>
+<td>body</td>
+<td>string</td>
+<td>true</td>
+<td>Grant type that you&#39;re requesting. The only grant_type supported is: &quot;client_credentials&quot;</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EAWkU7gMdB3BjngA3VFy6mL42TMaThGhS2ceEgnLxA2YhSU9DwAWTJEAIB7umoblKoXk5Y1x3vt8qbudkI8twX23DXou4oc4PwSK9Zgx0dYc9qgqooWMmnnoMd5lTEuj"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baerer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="Create_an_authentication_token-return">Return</h3>
+
+<p>Return the Authentication Token created</p>
+<h2 id='http-authentication'>HTTP Authentication</h2>
+<p><a id="opId HTTP authentication"></a>
+It&#39;s the authentication method you have to use in order to access all APIs. This authentication is performed via HTTP
+Basic Auth with the Bearer scheme. <br>
+All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will
+also fail. <br></p>
+
+<p>You&#39;ve to use this header in order to perform a correct API request: <br>
+<code>-H &quot;Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS&quot;</code></p>
+
+<h1 id="LogUp-Documentation-actor">Actor</h1>
+
+<p>Endpoint to be used to manage actors. An actor is the identity of a user inside LogUp. An Actor in LogUp is a user
+subscribed to your gate. Thanks to this endpoint, you can retrieve actor db values, update db values and db actor db 
+values.</p>
 <h2 id='delete-actor-db-values'>Delete actor db values</h2>
 <p><a id="opIdDelete actor db values"></a></p>
 
@@ -340,16 +487,18 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
 curl -X DELETE https://api.logup.co/dev/actor/<span class="o">{</span>id_actor<span class="o">}</span>/db <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span> 
 
 
 </code></pre><pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">https://api.logup.co/dev/actor/{id_actor}/db</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.logup.co</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS</span>
 
-<span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
 
 
 <span class="p">};</span>
@@ -375,13 +524,14 @@ curl -X DELETE https://api.logup.co/dev/actor/<span class="o">{</span>id_actor<s
   ]
 }'</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span>
+  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="nx">authToken_test_vuNeT21HiKDPRuhzQwcDSvSS</span><span class="s1">'
 
 
-<span class="p">};</span>
+};
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/dev/actor/{id_actor}/db'</span><span class="p">,</span>
+fetch('</span><span class="na">https</span><span class="p">:</span><span class="c1">//api.logup.co/dev/actor/{id_actor}/db',</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'DELETE'</span><span class="p">,</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
@@ -399,11 +549,12 @@ curl -X DELETE https://api.logup.co/dev/actor/<span class="o">{</span>id_actor<s
 
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
-<span class="p">}</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="no">Bearer</span> <span class="n">authToken_test_vuNeT21HiKDPRuhzQwcDSvSS</span><span class="s1">'
+}
 
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">delete</span> <span class="s1">'https://api.logup.co/dev/actor/{id_actor}/db'</span><span class="p">,</span>
+result = RestClient.delete '</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">api</span><span class="p">.</span><span class="nf">logup</span><span class="p">.</span><span class="nf">co</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">actor</span><span class="o">/</span><span class="p">{</span><span class="n">id_actor</span><span class="p">}</span><span class="o">/</span><span class="n">db</span><span class="err">'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -413,20 +564,21 @@ curl -X DELETE https://api.logup.co/dev/actor/<span class="o">{</span>id_actor<s
 
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
-<span class="p">}</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="n">Bearer</span> <span class="n">authToken_test_vuNeT21HiKDPRuhzQwcDSvSS</span><span class="s">'</span><span class="err">
+</span><span class="s">}</span><span class="err">
 
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'https://api.logup.co/dev/actor/{id_actor}/db'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+</span><span class="s">r = requests.delete('</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">logup</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">actor</span><span class="o">/</span><span class="p">{</span><span class="n">id_actor</span><span class="p">}</span><span class="o">/</span><span class="n">db</span><span class="s">', params={</span><span class="err">
 
 
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+</span><span class="s">}, headers = headers)</span><span class="err">
 
 
-<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span class="s">print r.json()</span><span class="err">
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/dev/actor/{id_actor}/db"</span><span class="o">);</span>
+</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/dev/actor/{id_actor}/db"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"DELETE"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -468,77 +620,49 @@ curl -X DELETE https://api.logup.co/dev/actor/<span class="o">{</span>id_actor<s
 </tr>
 </thead><tbody>
 <tr>
-<td>body</td>
-<td>body</td>
-<td>object</td>
-<td>true</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>» keys</td>
-<td>body</td>
-<td>[string]</td>
-<td>false</td>
-<td>List of keys you want to delete</td>
-</tr>
-<tr>
 <td>id_actor</td>
 <td>path</td>
 <td>string</td>
 <td>true</td>
 <td>Actor&#39;s id you want to manage</td>
 </tr>
+<tr>
+<td>keys</td>
+<td>body</td>
+<td>array[string]</td>
+<td>true</td>
+<td>List of keys you want to delete</td>
+</tr>
 </tbody></table>
 
 <h3 id="Delete_actor_db_values-responses">Responses</h3>
 
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>204</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
-<td>Actor db values deleted</td>
-<td>None</td>
-</tr>
-</tbody></table>
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-accessToken
-</aside>
-<h2 id='get_actor_values_saved_into_db'>Get_actor_values_saved_into_db</h2>
+<p>Actor db values deleted.</p>
+<h2 id='get-actor-db-values'>Get Actor Db Values</h2>
 <p><a id="opIdGet actor values saved into db"></a></p>
 
 <blockquote>
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.logup.co/dev/actor/<span class="o">{</span>id_actor<span class="o">}</span>/db <span class="se">\</span>
-  -H <span class="s1">'Accept: application/json'</span>
-
-
-</code></pre><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://api.logup.co/dev/actor/{id_actor}/db</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+curl -X GET https://api.logup.co/1_0/actor/<span class="o">{</span>id_actor<span class="o">}</span>/db <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span><span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://api.logup.co/1_0/actor/{id_actor}/db</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.logup.co</span>
 
-
 Accept: application/json
-
+Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
 
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span>
-
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
 
 <span class="p">};</span>
 
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.logup.co/dev/actor/{id_actor}/db'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.logup.co/1_0/actor/{id_actor}/db'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
 
@@ -553,13 +677,12 @@ Accept: application/json
 
 
 <span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span>
-
-
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
 <span class="p">};</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/dev/actor/{id_actor}/db'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/1_0/actor/{id_actor}/db'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -578,25 +701,24 @@ Accept: application/json
 
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
+  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
 <span class="p">}</span>
 
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api.logup.co/dev/actor/{id_actor}/db'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api.logup.co/1_0/actor/{id_actor}/db'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
-
 <span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
+  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
 <span class="p">}</span>
 
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.logup.co/dev/actor/{id_actor}/db'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.logup.co/1_0/actor/{id_actor}/db'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
@@ -605,7 +727,7 @@ Accept: application/json
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/dev/actor/{id_actor}/db"</span><span class="o">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/1_0/actor/{id_actor}/db"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -639,18 +761,18 @@ Accept: application/json
 </tr>
 </thead><tbody>
 <tr>
-<td>keys</td>
-<td>query</td>
-<td>array[string]</td>
-<td>false</td>
-<td>You&#39;ve to set this parameter if you want to receive some specific keys and associated values. Example: name,age,{other_keys},...</td>
-</tr>
-<tr>
 <td>id_actor</td>
 <td>path</td>
 <td>string</td>
 <td>true</td>
 <td>Actor&#39;s id you want to manage</td>
+</tr>
+<tr>
+<td>keys</td>
+<td>query</td>
+<td>array[string]</td>
+<td>false</td>
+<td>You&#39;ve to set this parameter if you want to receive some specific keys and associated values. Example: name,age,{other_keys},...</td>
 </tr>
 </tbody></table>
 
@@ -663,56 +785,36 @@ Accept: application/json
   </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h3 id="Get_actor_values_saved_into_db-responses">Responses</h3>
+<h3 id="Get_actor_values_saved_into_db-responses">Return</h3>
 
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>Actor db values served</td>
-<td><a href="#schemaactordbs">ActorDbs</a></td>
-</tr>
-</tbody></table>
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-accessToken
-</aside>
-<h2 id='update_actor_db_values'>Update_actor_db_values</h2>
+<p>Actor db values loaded</p>
+<h2 id='update-actor-db-values'>Update Actor Db Values</h2>
 <p><a id="opIdUpdate actor db values"></a></p>
 
 <blockquote>
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X PUT https://api.logup.co/dev/actor/<span class="o">{</span>id_actor<span class="o">}</span>/db <span class="se">\</span>
+curl -X PUT https://api.logup.co/1_0/actor/<span class="o">{</span>id_actor<span class="o">}</span>/db <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span>
-
-
-</code></pre><pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">https://api.logup.co/dev/actor/{id_actor}/db</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+  -H <span class="s1">'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">https://api.logup.co/1_0/actor/{id_actor}/db</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.logup.co</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS</span>
 
-<span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="nx">authToken_test_vuNeT21HiKDPRuhzQwcDSvSS</span><span class="s1">'
+
+};
 
 
-<span class="p">};</span>
-
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.logup.co/dev/actor/{id_actor}/db'</span><span class="p">,</span>
+$.ajax({
+  url: '</span><span class="na">https</span><span class="p">:</span><span class="c1">//api.logup.co/1_0/actor/{id_actor}/db',</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'put'</span><span class="p">,</span>
 
 
@@ -742,13 +844,13 @@ curl -X PUT https://api.logup.co/dev/actor/<span class="o">{</span>id_actor<span
 }'</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span>
-
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
 
 <span class="p">};</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/dev/actor/{id_actor}/db'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/1_0/actor/{id_actor}/db'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'PUT'</span><span class="p">,</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
@@ -767,11 +869,12 @@ curl -X PUT https://api.logup.co/dev/actor/<span class="o">{</span>id_actor<span
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
+  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
 <span class="p">}</span>
 
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">put</span> <span class="s1">'https://api.logup.co/dev/actor/{id_actor}/db'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">put</span> <span class="s1">'https://api.logup.co/1_0/actor/{id_actor}/db'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -782,20 +885,21 @@ curl -X PUT https://api.logup.co/dev/actor/<span class="o">{</span>id_actor<span
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
-  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
-<span class="p">}</span>
+  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="n">Bearer</span> <span class="n">authToken_test_vuNeT21HiKDPRuhzQwcDSvSS</span><span class="s">'</span><span class="err">
+</span><span class="s">}</span><span class="err">
 
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s">'https://api.logup.co/dev/actor/{id_actor}/db'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+</span><span class="s">r = requests.put('</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">logup</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="mi">1</span><span class="n">_0</span><span class="o">/</span><span class="n">actor</span><span class="o">/</span><span class="p">{</span><span class="n">id_actor</span><span class="p">}</span><span class="o">/</span><span class="n">db</span><span class="s">', params={</span><span class="err">
 
 
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+</span><span class="s">}, headers = headers)</span><span class="err">
 
 
-<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span class="s">print r.json()</span><span class="err">
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/dev/actor/{id_actor}/db"</span><span class="o">);</span>
+</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/1_0/actor/{id_actor}/db"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"PUT"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -847,18 +951,90 @@ curl -X PUT https://api.logup.co/dev/actor/<span class="o">{</span>id_actor<span
 </tr>
 </thead><tbody>
 <tr>
-<td>body</td>
-<td>body</td>
-<td><a href="#schemadbupdatedata">DBUpdateData</a></td>
-<td>true</td>
-<td>No description</td>
-</tr>
-<tr>
 <td>id_actor</td>
 <td>path</td>
 <td>string</td>
 <td>true</td>
 <td>Actor&#39;s id you want to manage</td>
+</tr>
+<tr>
+<td>data</td>
+<td>body</td>
+<td>[oneOf]</td>
+<td>true</td>
+<td>JSON Array containing all db values to be updated</td>
+</tr>
+</tbody></table>
+
+<p><em>oneOf</em></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>false</td>
+<td>Key parameter</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>false</td>
+<td>String value associated with the key</td>
+</tr>
+</tbody></table>
+
+<p><em>xor</em></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>false</td>
+<td>Key parameter</td>
+</tr>
+<tr>
+<td>value</td>
+<td>integer</td>
+<td>false</td>
+<td>Integer value associated with the key</td>
+</tr>
+</tbody></table>
+
+<p><em>xor</em></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>false</td>
+<td>Key parameter</td>
+</tr>
+<tr>
+<td>value</td>
+<td>boolean</td>
+<td>false</td>
+<td>Boolean value associated with the key</td>
 </tr>
 </tbody></table>
 
@@ -871,245 +1047,39 @@ curl -X PUT https://api.logup.co/dev/actor/<span class="o">{</span>id_actor<span
   </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h3 id="Update_actor_db_values-responses">Responses</h3>
+<h3 id="Update_actor_db_values-responses">Return</h3>
 
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>Actors db values updated.</td>
-<td><a href="#schemaactordbs">ActorDbs</a></td>
-</tr>
-</tbody></table>
+<p>Return actor db values updated</p>
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-accessToken
-</aside>
-
-<h1 id="LogUp-Documentation-oauth">oauth</h1>
-
-<p>Endpoint to be used to create new access token</p>
-<h2 id='create_an_authentication_token'>Create_an_authentication_token</h2>
-<p><a id="opIdCreate an authentication token"></a></p>
-
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.logup.co/dev/oauth/token <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'Accept: application/json'</span>
-
-
-</code></pre><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.logup.co/dev/oauth/token</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">api.logup.co</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
-
-<span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span>
-
-
-<span class="p">};</span>
-
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.logup.co/dev/oauth/token'</span><span class="p">,</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'post'</span><span class="p">,</span>
-
-
-  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
-  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
-  <span class="p">}</span>
-<span class="p">})</span>
-
-
-</code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="s1">'{
-  "client_id": "string",
-  "client_secret": "string",
-  "grant_type": "client_credentials"
-}'</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span>
-
-
-<span class="p">};</span>
-
-
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/dev/oauth/token'</span><span class="p">,</span>
-<span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
-  <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
-<span class="p">})</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-
-
-</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
-<span class="nb">require</span> <span class="s1">'json'</span>
-
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
-<span class="p">}</span>
-
-
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.logup.co/dev/oauth/token'</span><span class="p">,</span>
-  <span class="ss">params: </span><span class="p">{</span>
-  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
-
-
-<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
-  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
-<span class="p">}</span>
-
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.logup.co/dev/oauth/token'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-
-
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
-
-
-<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-
-
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/dev/oauth/token"</span><span class="o">);</span>
-<span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
-<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
-<span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
-<span class="n">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span>
-    <span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
-<span class="n">String</span> <span class="n">inputLine</span><span class="o">;</span>
-<span class="n">StringBuffer</span> <span class="n">response</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
-<span class="k">while</span> <span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">response</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-
-
-</code></pre>
-<p><code>POST /oauth/token</code></p>
-
-<p><em>Create an authentication token</em></p>
-
-<blockquote>
-<p>Body parameter</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_credentials"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="Create_an_authentication_token-parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>In</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>body</td>
-<td>body</td>
-<td><a href="#schemacreateaccesstoken">CreateAccessToken</a></td>
-<td>true</td>
-<td>No description</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EAWkU7gMdB3BjngA3VFy6mL42TMaThGhS2ceEgnLxA2YhSU9DwAWTJEAIB7umoblKoXk5Y1x3vt8qbudkI8twX23DXou4oc4PwSK9Zgx0dYc9qgqooWMmnnoMd5lTEuj"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baerer"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="Create_an_authentication_token-responses">Responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
-<td>Authentication token created</td>
-<td><a href="#schemaaccesstoken">AccessToken</a></td>
-</tr>
-</tbody></table>
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-apiOAuth
-</aside>
-
-<h1 id="LogUp-Documentation-verification">verification</h1>
+<h1 id="LogUp-Documentation-verification">Verification</h1>
 
 <p>Endpoint to be used to verify logup tokens received</p>
-<h2 id='verify_logup_token_received'>Verify_logup_token_received</h2>
-<p><a id="opIdVerify logup token received"></a></p>
+<h2 id='verify-logup-token'>Verify Logup Token</h2>
+<p><a id="opIdVerify Logup Token"></a></p>
 
 <blockquote>
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.logup.co/dev/verification <span class="se">\</span>
+curl -X POST https://api.logup.co/1_0/verification <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span>
-
-
-</code></pre><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.logup.co/dev/verification</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+  -H <span class="s1">'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.logup.co/1_0/verification</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.logup.co</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
-
-<span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span>
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="nx">authToken_test_vuNeT21HiKDPRuhzQwcDSvSS</span><span class="s1">'
+};
 
 
-<span class="p">};</span>
-
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.logup.co/dev/verification'</span><span class="p">,</span>
+$.ajax({
+  url: '</span><span class="na">https</span><span class="p">:</span><span class="c1">//api.logup.co/1_0/verification',</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'post'</span><span class="p">,</span>
-
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
   <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
@@ -1124,13 +1094,12 @@ curl -X POST https://api.logup.co/dev/verification <span class="se">\</span>
 }'</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">'Content-Type'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span>
-
-
+  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
 <span class="p">};</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/dev/verification'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/1_0/verification'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
@@ -1149,26 +1118,25 @@ curl -X POST https://api.logup.co/dev/verification <span class="se">\</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
-  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
+  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
 <span class="p">}</span>
 
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.logup.co/dev/verification'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.logup.co/1_0/verification'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
-
 <span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
-  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
+  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
 <span class="p">}</span>
 
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.logup.co/dev/verification'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.logup.co/1_0/verification'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
@@ -1177,7 +1145,7 @@ curl -X POST https://api.logup.co/dev/verification <span class="se">\</span>
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/dev/verification"</span><span class="o">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/1_0/verification"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -1216,18 +1184,11 @@ curl -X POST https://api.logup.co/dev/verification <span class="se">\</span>
 </tr>
 </thead><tbody>
 <tr>
-<td>body</td>
-<td>body</td>
-<td>object</td>
-<td>true</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>» logupToken</td>
+<td>logupToken</td>
 <td>body</td>
 <td>string</td>
-<td>false</td>
-<td>Logup token received after the user redirect. You&#39;ll find it after the redirect url into the query string ?logupToken=randomString</td>
+<td>true</td>
+<td>Logup token received after the user redirect. You&#39;ll find it after the redirect url into the query string ?logupToken={logupToken}</td>
 </tr>
 </tbody></table>
 
@@ -1244,491 +1205,9 @@ curl -X POST https://api.logup.co/dev/verification <span class="se">\</span>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h3 id="Verify_logup_token_received-responses">Responses</h3>
+<h3 id="Verify_logup_token_received-responses">Return</h3>
 
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
-<td>EndPoint called correctly</td>
-<td><a href="#schemaverification">Verification</a></td>
-</tr>
-</tbody></table>
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-accessToken
-</aside>
-<h1 id='schemas'>Schemas</h1>
-<h2 id="tocSaccesstoken">AccessToken</h2>
-
-<p><a id="schemaaccesstoken"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EAWkU7gMdB3BjngA3VFy6mL42TMaThGhS2ceEgnLxA2YhSU9DwAWTJEAIB7umoblKoXk5Y1x3vt8qbudkI8twX23DXou4oc4PwSK9Zgx0dYc9qgqooWMmnnoMd5lTEuj"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baerer"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='properties'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>access_token</td>
-<td>string</td>
-<td>false</td>
-<td>Access token to be used to call APIs</td>
-</tr>
-<tr>
-<td>token_type</td>
-<td>string</td>
-<td>false</td>
-<td>Token type created</td>
-</tr>
-<tr>
-<td>expires_in</td>
-<td>integer</td>
-<td>false</td>
-<td>Issued access token TTL (time to live), in seconds</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSactordbs">ActorDbs</h2>
-
-<p><a id="schemaactordbs"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"alreadySubscribed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"italy"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='properties-2'>Properties</h3>
-<p><em>oneOf</em></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><em>anonymous</em></td>
-<td><a href="#schemadbboolean">DbBoolean</a></td>
-<td>false</td>
-<td>No description</td>
-</tr>
-</tbody></table>
-
-<p><em>xor</em></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><em>anonymous</em></td>
-<td><a href="#schemadbinteger">DbInteger</a></td>
-<td>false</td>
-<td>No description</td>
-</tr>
-</tbody></table>
-
-<p><em>xor</em></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><em>anonymous</em></td>
-<td><a href="#schemadbstring">DbString</a></td>
-<td>false</td>
-<td>No description</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocScreateaccesstoken">CreateAccessToken</h2>
-
-<p><a id="schemacreateaccesstoken"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_credentials"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='properties-3'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>client_id</td>
-<td>string</td>
-<td>false</td>
-<td>Gate&#39;d is</td>
-</tr>
-<tr>
-<td>client_secret</td>
-<td>string</td>
-<td>false</td>
-<td>Secret key</td>
-</tr>
-<tr>
-<td>grant_type</td>
-<td>string</td>
-<td>false</td>
-<td>Grant type that you&#39;re requesting</td>
-</tr>
-</tbody></table>
-<h4 id='enumerated-values'>Enumerated Values</h4>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>grant_type</td>
-<td>client_credentials</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSdbstring">DbString</h2>
-
-<p><a id="schemadbstring"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"keyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Italy"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='properties-4'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>keyName</td>
-<td>string</td>
-<td>false</td>
-<td>KeyName is the key name you&#39;ve previously setted</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSdbinteger">DbInteger</h2>
-
-<p><a id="schemadbinteger"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"keyName"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='properties-5'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>keyName</td>
-<td>integer</td>
-<td>false</td>
-<td>KeyName is the key name you&#39;ve previously setted</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSdbboolean">DbBoolean</h2>
-
-<p><a id="schemadbboolean"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"keyName"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='properties-6'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>keyName</td>
-<td>boolean</td>
-<td>false</td>
-<td>KeyName is the key name you&#39;ve previously setted</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSdbupdatedata">DBUpdateData</h2>
-
-<p><a id="schemadbupdatedata"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"italy"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"age"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alreadySubscribed"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='properties-7'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>data</td>
-<td>[oneOf]</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-</tbody></table>
-
-<p><em>oneOf</em></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>» <em>anonymous</em></td>
-<td><a href="#schemadbupdatestring">DbUpdateString</a></td>
-<td>false</td>
-<td>No description</td>
-</tr>
-</tbody></table>
-
-<p><em>xor</em></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>» <em>anonymous</em></td>
-<td><a href="#schemadbupdateinteger">DbUpdateInteger</a></td>
-<td>false</td>
-<td>No description</td>
-</tr>
-</tbody></table>
-
-<p><em>xor</em></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>» <em>anonymous</em></td>
-<td><a href="#schemadbupdateboolean">DbUpdateBoolean</a></td>
-<td>false</td>
-<td>No description</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSdbupdatestring">DbUpdateString</h2>
-
-<p><a id="schemadbupdatestring"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='properties-8'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td>string</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>value</td>
-<td>string</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSdbupdateinteger">DbUpdateInteger</h2>
-
-<p><a id="schemadbupdateinteger"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='properties-9'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td>string</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>value</td>
-<td>integer</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSdbupdateboolean">DbUpdateBoolean</h2>
-
-<p><a id="schemadbupdateboolean"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='properties-10'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td>string</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>value</td>
-<td>boolean</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-</tbody></table>
-
-<h2 id="tocSverification">Verification</h2>
-
-<p><a id="schemaverification"></a></p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_LOGUP_TOKEN"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"idActor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"idSubscription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"db"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"keyName"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='properties-11'>Properties</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>verified</td>
-<td>boolean</td>
-<td>false</td>
-<td>True if the logupToken sent has been verified, false otherwise</td>
-</tr>
-<tr>
-<td>errorMessage</td>
-<td>string</td>
-<td>false</td>
-<td>You&#39;ll find this parameter when verified is equals to false. It&#39;s the error message</td>
-</tr>
-<tr>
-<td>idActor</td>
-<td>string</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>idSubscription</td>
-<td>string</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>db</td>
-<td><a href="#schemaactordbs">ActorDbs</a></td>
-<td>false</td>
-<td>No description</td>
-</tr>
-</tbody></table>
-<h4 id='enumerated-values-2'>Enumerated Values</h4>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>errorMessage</td>
-<td>INVALID_LOGUP_TOKEN</td>
-</tr>
-</tbody></table>
+<p>User which has completed the logup procedure.</p>
 
       </div>
       <div class="dark-box">
