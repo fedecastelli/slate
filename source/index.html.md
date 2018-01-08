@@ -18,41 +18,239 @@ headingLevel: 2
 ---
 
 
-<h1 id="LogUp-Documentation">LogUp Documentation v1.0.0</h1>
+<h1 id="LogUp-Documentation">Introduction</h1>
 
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
 
-LogUp Public API documentation
-
+The LogUp API is organized around REST. To interact with our APIs you have to use the "idGate" and "secretKey" received
+after the gate creation. Remember to never expose your keys in any public website's client-side code.
+All API responses is in JSON format. 
 
 Base URLs:
+<a href="https://api.logup.co/1_0">https://api.logup.co/1_0</a>
 
 
-* <a href="https://api.logup.co/dev">https://api.logup.co/dev</a>
+<h1 id="LogUp-Documentation-authentication">Authentication</h1>
+
+This API supports two modes of authentication:
+<ul>
+    <li><a href="#oauth2">OAuth2 Authentication</a>: Create authentication token to be used as HTTP Authentication</li>
+    <li><a href="#http-authentication">HTTP Authentication</a>: Useful to access all APIs</li>
+</ul>
+
+## OAuth2
+
+<a id="opId OAuth2 authentication"></a>
+Retrieve the OAuth Access token to be used as HTTP Authentication Header. 
+
+### Create The Authentication Token
 
 
-# Authentication
+<a id="opIdCreate The Authentication Token"></a>
 
 
-- oAuth2 authentication. 
+> Code samples
 
 
-    - Flow: clientCredentials
+```shell
+# You can also use wget
+curl -X POST https://api.logup.co/1_0/oauth/token \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
 
 
-    - Token URL = [https://api.logup.co/oauth/token](https://api.logup.co/oauth/token)
+```
 
 
-- HTTP Authentication, scheme: Bearer 
+```http
+POST https://api.logup.co/1_0/oauth/token HTTP/1.1
+Host: api.logup.co
+Content-Type: application/json
+Accept: application/json
 
 
-<h1 id="LogUp-Documentation-actor">actor</h1>
+```
 
 
-Endpoint to be used to manage actors
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
 
+
+};
+
+
+$.ajax({
+  url: 'https://api.logup.co/1_0/oauth/token',
+  method: 'post',
+
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+
+```
+
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "client_id": "string",
+  "client_secret": "string",
+  "grant_type": "client_credentials"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+
+};
+
+
+fetch('https://api.logup.co/1_0/oauth/token',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+
+```
+
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+
+result = RestClient.post 'https://api.logup.co/1_0/oauth/token',
+  params: {
+  }, headers: headers
+
+
+p JSON.parse(result)
+
+
+```
+
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+
+r = requests.post('https://api.logup.co/1_0/oauth/token', params={
+
+
+}, headers = headers)
+
+
+print r.json()
+
+
+```
+
+
+```java
+URL obj = new URL("https://api.logup.co/1_0/oauth/token");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+
+```
+
+
+`POST /oauth/token`
+
+
+*Create the authentication token*
+
+
+> Body parameter
+
+
+```json
+{
+  "client_id": "string",
+  "client_secret": "string",
+  "grant_type": "client_credentials"
+}
+```
+
+
+<h3 id="Create_an_authentication_token-parameters">Parameters</h3>
+
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|client_id|body|string|true|Gate's id received after you created your gate|
+|client_secret|body|string|true|Secret key received after you created your gate|
+|grant_type|body|string|true|Grant type that you're requesting. The only grant_type supported is: "client_credentials"|
+
+
+> Example responses
+
+
+```json
+{
+  "access_token": "EAWkU7gMdB3BjngA3VFy6mL42TMaThGhS2ceEgnLxA2YhSU9DwAWTJEAIB7umoblKoXk5Y1x3vt8qbudkI8twX23DXou4oc4PwSK9Zgx0dYc9qgqooWMmnnoMd5lTEuj",
+  "token_type": "Baerer",
+  "expires_in": 3600
+}
+```
+
+
+<h3 id="Create_an_authentication_token-return">Return</h3>
+Return the Authentication Token created
+
+## HTTP Authentication
+
+<a id="opId HTTP authentication"></a>
+It's the authentication method you have to use in order to access all APIs. This authentication is performed via HTTP
+Basic Auth with the Bearer scheme. <br>
+All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will
+also fail. <br>
+
+You've to use this header in order to perform a correct API request: <br>
+`-H "Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS"`
+
+
+<h1 id="LogUp-Documentation-actor">Actor</h1>
+
+
+Endpoint to be used to manage actors. An actor is the identity of a user inside LogUp. An Actor in LogUp is a user
+subscribed to your gate. Thanks to this endpoint, you can retrieve actor db values, update db values and db actor db 
+values.
 
 ## Delete actor db values
 
@@ -66,7 +264,8 @@ Endpoint to be used to manage actors
 ```shell
 # You can also use wget
 curl -X DELETE https://api.logup.co/dev/actor/{id_actor}/db \
-  -H 'Content-Type: application/json'
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS' 
 
 
 ```
@@ -76,14 +275,15 @@ curl -X DELETE https://api.logup.co/dev/actor/{id_actor}/db \
 DELETE https://api.logup.co/dev/actor/{id_actor}/db HTTP/1.1
 Host: api.logup.co
 Content-Type: application/json
-
+Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
 
 ```
 
 
 ```javascript
 var headers = {
-  'Content-Type':'application/json'
+  'Content-Type':'application/json',
+  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 
 
 };
@@ -113,7 +313,8 @@ const inputBody = '{
   ]
 }';
 const headers = {
-  'Content-Type':'application/json'
+  'Content-Type':'application/json',
+  'Authorization': Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 
 
 };
@@ -141,7 +342,8 @@ require 'json'
 
 
 headers = {
-  'Content-Type' => 'application/json'
+  'Content-Type' => 'application/json',
+  'Authorization' => Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 }
 
 
@@ -159,7 +361,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
+  'Authorization': Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 }
 
 
@@ -218,26 +421,13 @@ System.out.println(response.toString());
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|object|true|No description|
-|» keys|body|[string]|false|List of keys you want to delete|
 |id_actor|path|string|true|Actor's id you want to manage|
-
+|keys|body|array[string]|true|List of keys you want to delete|
 
 <h3 id="Delete_actor_db_values-responses">Responses</h3>
+Actor db values deleted.
 
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Actor db values deleted|None|
-
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-accessToken
-</aside>
-
-
-## Get_actor_values_saved_into_db
+## Get Actor Db Values
 
 
 <a id="opIdGet actor values saved into db"></a>
@@ -248,34 +438,32 @@ accessToken
 
 ```shell
 # You can also use wget
-curl -X GET https://api.logup.co/dev/actor/{id_actor}/db \
-  -H 'Accept: application/json'
-
-
+curl -X GET https://api.logup.co/1_0/actor/{id_actor}/db \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 ```
 
 
 ```http
-GET https://api.logup.co/dev/actor/{id_actor}/db HTTP/1.1
+GET https://api.logup.co/1_0/actor/{id_actor}/db HTTP/1.1
 Host: api.logup.co
 
-
 Accept: application/json
-
+Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
 
 ```
 
 
 ```javascript
 var headers = {
-  'Accept':'application/json'
-
+  'Accept':'application/json',
+  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 
 };
 
 
 $.ajax({
-  url: 'https://api.logup.co/dev/actor/{id_actor}/db',
+  url: 'https://api.logup.co/1_0/actor/{id_actor}/db',
   method: 'get',
 
 
@@ -294,13 +482,12 @@ const request = require('node-fetch');
 
 
 const headers = {
-  'Accept':'application/json'
-
-
+  'Accept':'application/json',
+  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 };
 
 
-fetch('https://api.logup.co/dev/actor/{id_actor}/db',
+fetch('https://api.logup.co/1_0/actor/{id_actor}/db',
 {
   method: 'GET',
 
@@ -323,29 +510,28 @@ require 'json'
 
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 }
 
 
-result = RestClient.get 'https://api.logup.co/dev/actor/{id_actor}/db',
+result = RestClient.get 'https://api.logup.co/1_0/actor/{id_actor}/db',
   params: {
   }, headers: headers
-
-
+  
 p JSON.parse(result)
-
-
 ```
 
 
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 }
 
 
-r = requests.get('https://api.logup.co/dev/actor/{id_actor}/db', params={
+r = requests.get('https://api.logup.co/1_0/actor/{id_actor}/db', params={
 
 
 }, headers = headers)
@@ -358,7 +544,7 @@ print r.json()
 
 
 ```java
-URL obj = new URL("https://api.logup.co/dev/actor/{id_actor}/db");
+URL obj = new URL("https://api.logup.co/1_0/actor/{id_actor}/db");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -390,8 +576,8 @@ If you want to get some specific values, use query string parameter keys
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|keys|query|array[string]|false|You've to set this parameter if you want to receive some specific keys and associated values. Example: name,age,{other_keys},...|
 |id_actor|path|string|true|Actor's id you want to manage|
+|keys|query|array[string]|false|You've to set this parameter if you want to receive some specific keys and associated values. Example: name,age,{other_keys},...|
 
 
 > Example responses
@@ -406,21 +592,11 @@ If you want to get some specific values, use query string parameter keys
 ```
 
 
-<h3 id="Get_actor_values_saved_into_db-responses">Responses</h3>
+<h3 id="Get_actor_values_saved_into_db-responses">Return</h3>
+Actor db values loaded
 
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Actor db values served|[ActorDbs](#schemaactordbs)|
-
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-accessToken
-</aside>
-
-
-## Update_actor_db_values
+## Update Actor Db Values
 
 
 <a id="opIdUpdate actor db values"></a>
@@ -431,20 +607,19 @@ accessToken
 
 ```shell
 # You can also use wget
-curl -X PUT https://api.logup.co/dev/actor/{id_actor}/db \
+curl -X PUT https://api.logup.co/1_0/actor/{id_actor}/db \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
-
-
+  -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 ```
 
 
 ```http
-PUT https://api.logup.co/dev/actor/{id_actor}/db HTTP/1.1
+PUT https://api.logup.co/1_0/actor/{id_actor}/db HTTP/1.1
 Host: api.logup.co
 Content-Type: application/json
 Accept: application/json
-
+Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
 
 ```
 
@@ -452,14 +627,14 @@ Accept: application/json
 ```javascript
 var headers = {
   'Content-Type':'application/json',
-  'Accept':'application/json'
-
+  'Accept':'application/json',
+  'Authorization': Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 
 };
 
 
 $.ajax({
-  url: 'https://api.logup.co/dev/actor/{id_actor}/db',
+  url: 'https://api.logup.co/1_0/actor/{id_actor}/db',
   method: 'put',
 
 
@@ -493,13 +668,13 @@ const inputBody = '{
 }';
 const headers = {
   'Content-Type':'application/json',
-  'Accept':'application/json'
-
+  'Accept':'application/json',
+  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 
 };
 
 
-fetch('https://api.logup.co/dev/actor/{id_actor}/db',
+fetch('https://api.logup.co/1_0/actor/{id_actor}/db',
 {
   method: 'PUT',
   body: inputBody,
@@ -522,11 +697,12 @@ require 'json'
 
 headers = {
   'Content-Type' => 'application/json',
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 }
 
 
-result = RestClient.put 'https://api.logup.co/dev/actor/{id_actor}/db',
+result = RestClient.put 'https://api.logup.co/1_0/actor/{id_actor}/db',
   params: {
   }, headers: headers
 
@@ -541,11 +717,12 @@ p JSON.parse(result)
 import requests
 headers = {
   'Content-Type': 'application/json',
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 }
 
 
-r = requests.put('https://api.logup.co/dev/actor/{id_actor}/db', params={
+r = requests.put('https://api.logup.co/1_0/actor/{id_actor}/db', params={
 
 
 }, headers = headers)
@@ -558,7 +735,7 @@ print r.json()
 
 
 ```java
-URL obj = new URL("https://api.logup.co/dev/actor/{id_actor}/db");
+URL obj = new URL("https://api.logup.co/1_0/actor/{id_actor}/db");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -610,9 +787,31 @@ System.out.println(response.toString());
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[DBUpdateData](#schemadbupdatedata)|true|No description|
 |id_actor|path|string|true|Actor's id you want to manage|
+|data|body|[oneOf]|true|JSON Array containing all db values to be updated|
 
+*oneOf*
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|key|string|false|Key parameter|
+|value|string|false|String value associated with the key|
+
+
+*xor*
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|key|string|false|Key parameter|
+|value|integer|false|Integer value associated with the key|
+
+
+*xor*
+
+|Name|Type|Required|Description|
+|---|---|---|---|
+|key|string|false|Key parameter|
+|value|boolean|false|Boolean value associated with the key|
 
 > Example responses
 
@@ -626,233 +825,20 @@ System.out.println(response.toString());
 ```
 
 
-<h3 id="Update_actor_db_values-responses">Responses</h3>
+<h3 id="Update_actor_db_values-responses">Return</h3>
+Return actor db values updated
 
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Actors db values updated.|[ActorDbs](#schemaactordbs)|
-
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-accessToken
-</aside>
-
-
-<h1 id="LogUp-Documentation-oauth">oauth</h1>
-
-
-Endpoint to be used to create new access token
-
-
-## Create_an_authentication_token
-
-
-<a id="opIdCreate an authentication token"></a>
-
-
-> Code samples
-
-
-```shell
-# You can also use wget
-curl -X POST https://api.logup.co/dev/oauth/token \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json'
-
-
-```
-
-
-```http
-POST https://api.logup.co/dev/oauth/token HTTP/1.1
-Host: api.logup.co
-Content-Type: application/json
-Accept: application/json
-
-
-```
-
-
-```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json'
-
-
-};
-
-
-$.ajax({
-  url: 'https://api.logup.co/dev/oauth/token',
-  method: 'post',
-
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-
-```
-
-
-```javascript--nodejs
-const request = require('node-fetch');
-const inputBody = '{
-  "client_id": "string",
-  "client_secret": "string",
-  "grant_type": "client_credentials"
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json'
-
-
-};
-
-
-fetch('https://api.logup.co/dev/oauth/token',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-
-```
-
-
-```ruby
-require 'rest-client'
-require 'json'
-
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json'
-}
-
-
-result = RestClient.post 'https://api.logup.co/dev/oauth/token',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-
-
-```
-
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-
-r = requests.post('https://api.logup.co/dev/oauth/token', params={
-
-
-}, headers = headers)
-
-
-print r.json()
-
-
-```
-
-
-```java
-URL obj = new URL("https://api.logup.co/dev/oauth/token");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-
-```
-
-
-`POST /oauth/token`
-
-
-*Create an authentication token*
-
-
-> Body parameter
-
-
-```json
-{
-  "client_id": "string",
-  "client_secret": "string",
-  "grant_type": "client_credentials"
-}
-```
-
-
-<h3 id="Create_an_authentication_token-parameters">Parameters</h3>
-
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[CreateAccessToken](#schemacreateaccesstoken)|true|No description|
-
-
-> Example responses
-
-
-```json
-{
-  "access_token": "EAWkU7gMdB3BjngA3VFy6mL42TMaThGhS2ceEgnLxA2YhSU9DwAWTJEAIB7umoblKoXk5Y1x3vt8qbudkI8twX23DXou4oc4PwSK9Zgx0dYc9qgqooWMmnnoMd5lTEuj",
-  "token_type": "Baerer",
-  "expires_in": 3600
-}
-```
-
-
-<h3 id="Create_an_authentication_token-responses">Responses</h3>
-
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Authentication token created|[AccessToken](#schemaaccesstoken)|
-
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-apiOAuth
-</aside>
-
-
-<h1 id="LogUp-Documentation-verification">verification</h1>
+<h1 id="LogUp-Documentation-verification">Verification</h1>
 
 
 Endpoint to be used to verify logup tokens received
 
 
-## Verify_logup_token_received
+## Verify Logup Token
 
 
-<a id="opIdVerify logup token received"></a>
+<a id="opIdVerify Logup Token"></a>
 
 
 > Code samples
@@ -860,37 +846,33 @@ Endpoint to be used to verify logup tokens received
 
 ```shell
 # You can also use wget
-curl -X POST https://api.logup.co/dev/verification \
+curl -X POST https://api.logup.co/1_0/verification \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
-
-
+  -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 ```
 
 
 ```http
-POST https://api.logup.co/dev/verification HTTP/1.1
+POST https://api.logup.co/1_0/verification HTTP/1.1
 Host: api.logup.co
 Content-Type: application/json
 Accept: application/json
-
-
+Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
 ```
 
 
 ```javascript
 var headers = {
   'Content-Type':'application/json',
-  'Accept':'application/json'
-
-
+  'Accept':'application/json',
+  'Authorization': Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 };
 
 
 $.ajax({
-  url: 'https://api.logup.co/dev/verification',
+  url: 'https://api.logup.co/1_0/verification',
   method: 'post',
-
 
   headers: headers,
   success: function(data) {
@@ -909,13 +891,12 @@ const inputBody = '{
 }';
 const headers = {
   'Content-Type':'application/json',
-  'Accept':'application/json'
-
-
+  'Accept':'application/json',
+  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 };
 
 
-fetch('https://api.logup.co/dev/verification',
+fetch('https://api.logup.co/1_0/verification',
 {
   method: 'POST',
   body: inputBody,
@@ -938,18 +919,16 @@ require 'json'
 
 headers = {
   'Content-Type' => 'application/json',
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 }
 
 
-result = RestClient.post 'https://api.logup.co/dev/verification',
+result = RestClient.post 'https://api.logup.co/1_0/verification',
   params: {
   }, headers: headers
 
-
 p JSON.parse(result)
-
-
 ```
 
 
@@ -957,11 +936,12 @@ p JSON.parse(result)
 import requests
 headers = {
   'Content-Type': 'application/json',
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 }
 
 
-r = requests.post('https://api.logup.co/dev/verification', params={
+r = requests.post('https://api.logup.co/1_0/verification', params={
 
 
 }, headers = headers)
@@ -974,7 +954,7 @@ print r.json()
 
 
 ```java
-URL obj = new URL("https://api.logup.co/dev/verification");
+URL obj = new URL("https://api.logup.co/1_0/verification");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -1013,9 +993,7 @@ System.out.println(response.toString());
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|object|true|No description|
-|» logupToken|body|string|false|Logup token received after the user redirect. You'll find it after the redirect url into the query string ?logupToken=randomString|
-
+|logupToken|body|string|true|Logup token received after the user redirect. You'll find it after the redirect url into the query string ?logupToken={logupToken}|
 
 > Example responses
 
@@ -1033,349 +1011,5 @@ System.out.println(response.toString());
 ```
 
 
-<h3 id="Verify_logup_token_received-responses">Responses</h3>
-
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|EndPoint called correctly|[Verification](#schemaverification)|
-
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-accessToken
-</aside>
-
-
-# Schemas
-
-
-<h2 id="tocSaccesstoken">AccessToken</h2>
-
-
-<a id="schemaaccesstoken"></a>
-
-
-```json
-{
-  "access_token": "EAWkU7gMdB3BjngA3VFy6mL42TMaThGhS2ceEgnLxA2YhSU9DwAWTJEAIB7umoblKoXk5Y1x3vt8qbudkI8twX23DXou4oc4PwSK9Zgx0dYc9qgqooWMmnnoMd5lTEuj",
-  "token_type": "Baerer",
-  "expires_in": 3600
-}
-```
-
-
-### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|access_token|string|false|Access token to be used to call APIs|
-|token_type|string|false|Token type created|
-|expires_in|integer|false|Issued access token TTL (time to live), in seconds|
-
-
-<h2 id="tocSactordbs">ActorDbs</h2>
-
-
-<a id="schemaactordbs"></a>
-
-
-```json
-{
-  "alreadySubscribed": false,
-  "country": "italy",
-  "age": 20
-}
-```
-
-
-### Properties
-
-
-*oneOf*
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|*anonymous*|[DbBoolean](#schemadbboolean)|false|No description|
-
-
-*xor*
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|*anonymous*|[DbInteger](#schemadbinteger)|false|No description|
-
-
-*xor*
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|*anonymous*|[DbString](#schemadbstring)|false|No description|
-
-
-<h2 id="tocScreateaccesstoken">CreateAccessToken</h2>
-
-
-<a id="schemacreateaccesstoken"></a>
-
-
-```json
-{
-  "client_id": "string",
-  "client_secret": "string",
-  "grant_type": "client_credentials"
-}
-```
-
-
-### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|client_id|string|false|Gate'd is|
-|client_secret|string|false|Secret key|
-|grant_type|string|false|Grant type that you're requesting|
-
-
-#### Enumerated Values
-
-
-|Property|Value|
-|---|---|
-|grant_type|client_credentials|
-
-
-<h2 id="tocSdbstring">DbString</h2>
-
-
-<a id="schemadbstring"></a>
-
-
-```json
-{
-  "keyName": "Italy"
-}
-```
-
-
-### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|keyName|string|false|KeyName is the key name you've previously setted|
-
-
-<h2 id="tocSdbinteger">DbInteger</h2>
-
-
-<a id="schemadbinteger"></a>
-
-
-```json
-{
-  "keyName": 20
-}
-```
-
-
-### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|keyName|integer|false|KeyName is the key name you've previously setted|
-
-
-<h2 id="tocSdbboolean">DbBoolean</h2>
-
-
-<a id="schemadbboolean"></a>
-
-
-```json
-{
-  "keyName": true
-}
-```
-
-
-### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|keyName|boolean|false|KeyName is the key name you've previously setted|
-
-
-<h2 id="tocSdbupdatedata">DBUpdateData</h2>
-
-
-<a id="schemadbupdatedata"></a>
-
-
-```json
-{
-  "data": [
-    {
-      "key": "country",
-      "value": "italy"
-    },
-    {
-      "key": "age",
-      "value": 21
-    },
-    {
-      "key": "alreadySubscribed",
-      "value": true
-    }
-  ]
-}
-```
-
-
-### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|data|[oneOf]|false|No description|
-
-
-*oneOf*
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|» *anonymous*|[DbUpdateString](#schemadbupdatestring)|false|No description|
-
-
-*xor*
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|» *anonymous*|[DbUpdateInteger](#schemadbupdateinteger)|false|No description|
-
-
-*xor*
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|» *anonymous*|[DbUpdateBoolean](#schemadbupdateboolean)|false|No description|
-
-
-<h2 id="tocSdbupdatestring">DbUpdateString</h2>
-
-
-<a id="schemadbupdatestring"></a>
-
-
-```json
-{
-  "key": "string",
-  "value": "string"
-}
-```
-
-
-### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|key|string|false|No description|
-|value|string|false|No description|
-
-
-<h2 id="tocSdbupdateinteger">DbUpdateInteger</h2>
-
-
-<a id="schemadbupdateinteger"></a>
-
-
-```json
-{
-  "key": "string",
-  "value": 0
-}
-```
-
-
-### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|key|string|false|No description|
-|value|integer|false|No description|
-
-
-<h2 id="tocSdbupdateboolean">DbUpdateBoolean</h2>
-
-
-<a id="schemadbupdateboolean"></a>
-
-
-```json
-{
-  "key": "string",
-  "value": true
-}
-```
-
-
-### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|key|string|false|No description|
-|value|boolean|false|No description|
-
-
-<h2 id="tocSverification">Verification</h2>
-
-
-<a id="schemaverification"></a>
-
-
-```json
-{
-  "verified": true,
-  "errorMessage": "INVALID_LOGUP_TOKEN",
-  "idActor": "string",
-  "idSubscription": "string",
-  "db": {
-    "keyName": true
-  }
-}
-```
-
-
-### Properties
-
-
-|Name|Type|Required|Description|
-|---|---|---|---|
-|verified|boolean|false|True if the logupToken sent has been verified, false otherwise|
-|errorMessage|string|false|You'll find this parameter when verified is equals to false. It's the error message|
-|idActor|string|false|No description|
-|idSubscription|string|false|No description|
-|db|[ActorDbs](#schemaactordbs)|false|No description|
-
-
-#### Enumerated Values
-
-
-|Property|Value|
-|---|---|
-|errorMessage|INVALID_LOGUP_TOKEN|
-
-
+<h3 id="Verify_logup_token_received-responses">Return</h3>
+User which has completed the logup procedure.
