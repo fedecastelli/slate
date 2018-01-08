@@ -18,7 +18,7 @@ headingLevel: 2
 ---
 
 
-<h1 id="LogUp-Documentation">Introduction</h1>
+# Introduction
 
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
@@ -32,7 +32,7 @@ Base URLs:
 <a href="https://api.logup.co/1_0">https://api.logup.co/1_0</a>
 
 
-<h1 id="LogUp-Documentation-authentication">Authentication</h1>
+# Authentication
 
 This API supports two modes of authentication:
 <ul>
@@ -44,7 +44,6 @@ This API supports two modes of authentication:
 
 <a id="opId OAuth2 authentication"></a>
 Retrieve the OAuth Access token to be used as HTTP Authentication Header. 
-
 ### Create The Authentication Token
 
 
@@ -193,9 +192,6 @@ System.out.println(response.toString());
 `POST /oauth/token`
 
 
-*Create the authentication token*
-
-
 > Body parameter
 
 
@@ -244,15 +240,37 @@ also fail. <br>
 You've to use this header in order to perform a correct API request: <br>
 `-H "Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS"`
 
+# Interacting With The API
 
-<h1 id="LogUp-Documentation-actor">Actor</h1>
+## Status Codes
+
+Status codes implemented by LogUp endpoints:
+<ul>
+    <li>`200 OK` Successful request</li>
+    <li>`201 Created` New object created</li>
+    <li>`204 No Content` Object deleted</li>
+    <li>`400 Bad Request` Returns JSON with the error message</li>
+</ul>
+
+## Making Requests
+
+LogUp API implements following HTTP verbs:
+
+<ul>
+    <li><b>GET</b> - Read resources</li>
+    <li><b>DELETE</b> - Remove resources</li>
+    <li><b>POST</b> - Create new resources</li>
+    <li><b>PUT</b> - Modify existing resources</li>
+</ul>
+
+# Actor
 
 
 Endpoint to be used to manage actors. An actor is the identity of a user inside LogUp. An Actor in LogUp is a user
 subscribed to your gate. Thanks to this endpoint, you can retrieve actor db values, update db values and db actor db 
 values.
 
-## Delete actor db values
+## Delete Actor Db Values
 
 
 <a id="opIdDelete actor db values"></a>
@@ -399,8 +417,7 @@ System.out.println(response.toString());
 
 `DELETE /actor/{id_actor}/db`
 
-
-*Delete actor db values*
+Delete db values associated with the actor path parameter.
 
 
 > Body parameter
@@ -565,10 +582,8 @@ System.out.println(response.toString());
 `GET /actor/{id_actor}/db`
 
 
-*Get actor values saved into db*
-
-
-If you want to get some specific values, use query string parameter keys
+Get actor values saved into LogUp DB. If you want to get some specific values, use query string parameter "keys". If you
+set the keys query parameters and one of the key does not exist in our DB, that key will not be in the JSON response.
 
 
 <h3 id="Get_actor_values_saved_into_db-parameters">Parameters</h3>
@@ -592,8 +607,8 @@ If you want to get some specific values, use query string parameter keys
 ```
 
 
-<h3 id="Get_actor_values_saved_into_db-responses">Return</h3>
-Actor db values loaded
+<h3 id="Get_actor_values_saved_into_db-return">Return</h3>
+Actor db values loaded.
 
 
 ## Update Actor Db Values
@@ -756,8 +771,14 @@ System.out.println(response.toString());
 `PUT /actor/{id_actor}/db`
 
 
-*Update actor db values*
-
+Update actor BB values. If the key-value pair does not exist in LogUp DB, we create that key-value pair.
+The are some limitations:
+<ul>
+    <li>Each actor cannot have more than 20 fields (20 different keys)</li>
+    <li>Each key can’t be longer than 32 characters</li>
+    <li>Each value must be less than 1 kilobyte. Since we use UTF8 charset, this means no more than 1024 characters</li>
+    <li>each value can contain only numbers, strings or boolean values</li>
+</ul>
 
 > Body parameter
 
@@ -829,10 +850,11 @@ System.out.println(response.toString());
 Return actor db values updated
 
 
-<h1 id="LogUp-Documentation-verification">Verification</h1>
+# Verification
 
-
-Endpoint to be used to verify logup tokens received
+You have to use this endpoint to verify LogUp tokens received. 
+You'll find the token needed to make this API call into the redirect URL query parameters logupToken={logupToken}. 
+This logupToken is generated when the user finished his logup procedure.
 
 
 ## Verify Logup Token
@@ -974,8 +996,7 @@ System.out.println(response.toString());
 
 `POST /verification`
 
-
-*Verify logup token received*
+Verify logup token received
 
 
 > Body parameter
