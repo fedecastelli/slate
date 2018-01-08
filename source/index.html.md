@@ -197,8 +197,8 @@ System.out.println(response.toString());
 
 ```json
 {
-  "client_id": "string",
-  "client_secret": "string",
+  "client_id": "gate_gateTestRandom",
+  "client_secret": "gateSecretKeyRandom",
   "grant_type": "client_credentials"
 }
 ```
@@ -1023,8 +1023,8 @@ Verify logup token received
 {
   "verified": true,
   "errorMessage": "INVALID_LOGUP_TOKEN",
-  "idActor": "string",
-  "idSubscription": "string",
+  "idActor": "acr_testActorLogUp",
+  "idSubscription": "sub_testSubscription",
   "db": {
     "keyName": true
   }
