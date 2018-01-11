@@ -263,17 +263,17 @@ LogUp API implements following HTTP verbs:
     <li><b>PUT</b> - Modify existing resources</li>
 </ul>
 
-# Actor
+# Subscription
 
 
-Endpoint to be used to manage actors. An actor is the identity of a user inside LogUp. An Actor in LogUp is a user
-subscribed to your gate. Thanks to this endpoint, you can retrieve actor db values, update db values and db actor db 
-values.
-
-## Delete Actor Db Values
+Endpoint to be used to manage subscriptions. Thanks to this endpoint, you can retrieve subscription db values, 
+update db values and delete db values.
 
 
-<a id="opIdDelete actor db values"></a>
+## Update Subscription Db Values
+
+
+<a id="opIdUpdate subscription db values"></a>
 
 
 > Code samples
@@ -281,348 +281,7 @@ values.
 
 ```shell
 # You can also use wget
-curl -X DELETE https://api.logup.co/dev/actor/{id_actor}/db \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS' 
-
-
-```
-
-
-```http
-DELETE https://api.logup.co/dev/actor/{id_actor}/db HTTP/1.1
-Host: api.logup.co
-Content-Type: application/json
-Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
-
-```
-
-
-```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
-
-
-};
-
-
-$.ajax({
-  url: 'https://api.logup.co/dev/actor/{id_actor}/db',
-  method: 'delete',
-
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-
-```
-
-
-```javascript--nodejs
-const request = require('node-fetch');
-const inputBody = '{
-  "keys": [
-    "name",
-    "age"
-  ]
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'Authorization': Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
-
-
-};
-
-
-fetch('https://api.logup.co/dev/actor/{id_actor}/db',
-{
-  method: 'DELETE',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-
-```
-
-
-```ruby
-require 'rest-client'
-require 'json'
-
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Authorization' => Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
-}
-
-
-result = RestClient.delete 'https://api.logup.co/dev/actor/{id_actor}/db',
-  params: {
-  }, headers: headers
-
-
-p JSON.parse(result)
-
-
-```
-
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Authorization': Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
-}
-
-
-r = requests.delete('https://api.logup.co/dev/actor/{id_actor}/db', params={
-
-
-}, headers = headers)
-
-
-print r.json()
-
-
-```
-
-
-```java
-URL obj = new URL("https://api.logup.co/dev/actor/{id_actor}/db");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("DELETE");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-
-```
-
-
-`DELETE /actor/{id_actor}/db`
-
-Delete db values associated with the actor path parameter.
-
-
-> Body parameter
-
-
-```json
-{
-  "keys": [
-    "name",
-    "age"
-  ]
-}
-```
-
-
-<h3 id="Delete_actor_db_values-parameters">Parameters</h3>
-
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|id_actor|path|string|true|Actor's id you want to manage|
-|keys|body|array[string]|true|List of keys you want to delete|
-
-<h3 id="Delete_actor_db_values-responses">Responses</h3>
-Actor db values deleted.
-
-## Get Actor Db Values
-
-
-<a id="opIdGet actor values saved into db"></a>
-
-
-> Code samples
-
-
-```shell
-# You can also use wget
-curl -X GET https://api.logup.co/1_0/actor/{id_actor}/db \
-  -H 'Accept: application/json'\
-  -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
-```
-
-
-```http
-GET https://api.logup.co/1_0/actor/{id_actor}/db HTTP/1.1
-Host: api.logup.co
-
-Accept: application/json
-Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
-
-```
-
-
-```javascript
-var headers = {
-  'Accept':'application/json',
-  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
-
-};
-
-
-$.ajax({
-  url: 'https://api.logup.co/1_0/actor/{id_actor}/db',
-  method: 'get',
-
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-
-```
-
-
-```javascript--nodejs
-const request = require('node-fetch');
-
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
-};
-
-
-fetch('https://api.logup.co/1_0/actor/{id_actor}/db',
-{
-  method: 'GET',
-
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-
-```
-
-
-```ruby
-require 'rest-client'
-require 'json'
-
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
-}
-
-
-result = RestClient.get 'https://api.logup.co/1_0/actor/{id_actor}/db',
-  params: {
-  }, headers: headers
-  
-p JSON.parse(result)
-```
-
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
-}
-
-
-r = requests.get('https://api.logup.co/1_0/actor/{id_actor}/db', params={
-
-
-}, headers = headers)
-
-
-print r.json()
-
-
-```
-
-
-```java
-URL obj = new URL("https://api.logup.co/1_0/actor/{id_actor}/db");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-
-```
-
-
-`GET /actor/{id_actor}/db`
-
-
-Get actor values saved into LogUp DB. If you want to get some specific values, use query string parameter "keys". If you
-set the keys query parameters and one of the key does not exist in our DB, that key will not be in the JSON response.
-
-
-<h3 id="Get_actor_values_saved_into_db-parameters">Parameters</h3>
-
-
-|Parameter|In|Type|Required|Description|
-|---|---|---|---|---|
-|id_actor|path|string|true|Actor's id you want to manage|
-|keys|query|array[string]|false|You've to set this parameter if you want to receive some specific keys and associated values. Example: name,age,{other_keys},...|
-
-
-> Example responses
-
-
-```json
-{
-  "alreadySubscribed": false,
-  "country": "italy",
-  "age": 20
-}
-```
-
-
-<h3 id="Get_actor_values_saved_into_db-return">Return</h3>
-Actor db values loaded.
-
-
-## Update Actor Db Values
-
-
-<a id="opIdUpdate actor db values"></a>
-
-
-> Code samples
-
-
-```shell
-# You can also use wget
-curl -X PUT https://api.logup.co/1_0/actor/{id_actor}/db \
+curl -X PUT https://api.logup.co/1_0/subscription/{id_subscription}/db \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
   -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
@@ -630,7 +289,7 @@ curl -X PUT https://api.logup.co/1_0/actor/{id_actor}/db \
 
 
 ```http
-PUT https://api.logup.co/1_0/actor/{id_actor}/db HTTP/1.1
+PUT https://api.logup.co/1_0/subscription/{id_subscription}/db HTTP/1.1
 Host: api.logup.co
 Content-Type: application/json
 Accept: application/json
@@ -649,7 +308,7 @@ var headers = {
 
 
 $.ajax({
-  url: 'https://api.logup.co/1_0/actor/{id_actor}/db',
+  url: 'https://api.logup.co/1_0/subscription/{id_subscription}/db',
   method: 'put',
 
 
@@ -689,7 +348,7 @@ const headers = {
 };
 
 
-fetch('https://api.logup.co/1_0/actor/{id_actor}/db',
+fetch('https://api.logup.co/1_0/subscription/{id_subscription}/db',
 {
   method: 'PUT',
   body: inputBody,
@@ -717,7 +376,7 @@ headers = {
 }
 
 
-result = RestClient.put 'https://api.logup.co/1_0/actor/{id_actor}/db',
+result = RestClient.put 'https://api.logup.co/1_0/subscription/{id_subscription}/db',
   params: {
   }, headers: headers
 
@@ -737,7 +396,7 @@ headers = {
 }
 
 
-r = requests.put('https://api.logup.co/1_0/actor/{id_actor}/db', params={
+r = requests.put('https://api.logup.co/1_0/subscription/{id_subscription}/db', params={
 
 
 }, headers = headers)
@@ -750,7 +409,7 @@ print r.json()
 
 
 ```java
-URL obj = new URL("https://api.logup.co/1_0/actor/{id_actor}/db");
+URL obj = new URL("https://api.logup.co/1_0/subscription/{id_subscription}/db");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -768,13 +427,13 @@ System.out.println(response.toString());
 ```
 
 
-`PUT /actor/{id_actor}/db`
+`PUT /subscription/{id_subscription}/db`
 
 
-Update actor BB values. If the key-value pair does not exist in LogUp DB, we create that key-value pair.
+Update bb values. If the key-value pair does not exist in LogUp DB, we create that key-value pair.
 The are some limitations:
 <ul>
-    <li>Each actor cannot have more than 20 fields (20 different keys)</li>
+    <li>Each subscription cannot have more than 20 fields (20 different keys)</li>
     <li>Each key can’t be longer than 32 characters</li>
     <li>Each value must be less than 1 kilobyte. Since we use UTF8 charset, this means no more than 1024 characters</li>
     <li>each value can contain only numbers, strings or boolean values</li>
@@ -803,12 +462,12 @@ The are some limitations:
 ```
 
 
-<h3 id="Update_actor_db_values-parameters">Parameters</h3>
+<h3 id="Update_subscription_db_values-parameters">Parameters</h3>
 
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|id_actor|path|string|true|Actor's id you want to manage|
+|id_subscription|path|string|true|Subscription's id you want to manage|
 |data|body|[oneOf]|true|JSON Array containing all db values to be updated|
 
 *oneOf*
@@ -846,9 +505,348 @@ The are some limitations:
 ```
 
 
-<h3 id="Update_actor_db_values-responses">Return</h3>
-Return actor db values updated
+<h3 id="Update_subscription_db_values-responses">Return</h3>
+Return subscription db values updated
 
+## Get Subscription Db Values
+
+
+<a id="opIdGet subscription values saved into db"></a>
+
+
+> Code samples
+
+
+```shell
+# You can also use wget
+curl -X GET https://api.logup.co/1_0/subscription/{id_subscription}/db \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
+```
+
+
+```http
+GET https://api.logup.co/1_0/subscription/{id_subscription}/db HTTP/1.1
+Host: api.logup.co
+
+Accept: application/json
+Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
+
+```
+
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
+
+};
+
+
+$.ajax({
+  url: 'https://api.logup.co/1_0/subscription/{id_subscription}/db',
+  method: 'get',
+
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+
+```
+
+
+```javascript--nodejs
+const request = require('node-fetch');
+
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
+};
+
+
+fetch('https://api.logup.co/1_0/subscription/{id_subscription}/db',
+{
+  method: 'GET',
+
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+
+```
+
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
+}
+
+
+result = RestClient.get 'https://api.logup.co/1_0/subscription/{id_subscription}/db',
+  params: {
+  }, headers: headers
+  
+p JSON.parse(result)
+```
+
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
+}
+
+
+r = requests.get('https://api.logup.co/1_0/subscription/{id_subscription}/db', params={
+
+
+}, headers = headers)
+
+
+print r.json()
+
+
+```
+
+
+```java
+URL obj = new URL("https://api.logup.co/1_0/subscription/{id_subscription}/db");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+
+```
+
+
+`GET /subscription/{id_subscription}/db`
+
+
+Get values saved into LogUp DB. If you want to get some specific values, use query string parameter "keys". If you
+set the keys query parameters and one of the key does not exist in our DB, that key will not be in the JSON response.
+
+
+<h3 id="Get_subscription_values_saved_into_db-parameters">Parameters</h3>
+
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|id_subscription|path|string|true|Subscription's id you want to manage|
+|keys|query|array[string]|false|You've to set this parameter if you want to receive some specific keys and associated values. Example: name,age,{other_keys},...|
+
+
+> Example responses
+
+
+```json
+{
+  "alreadySubscribed": false,
+  "country": "italy",
+  "age": 20
+}
+```
+
+
+<h3 id="Get_subscription_values_saved_into_db-return">Return</h3>
+Subscription db values loaded.
+
+## Delete Subscription Db Values
+
+
+<a id="opIdDelete subscription db values"></a>
+
+
+> Code samples
+
+
+```shell
+# You can also use wget
+curl -X DELETE https://api.logup.co/1_0/subscription/{id_subscription}/db \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS' 
+
+
+```
+
+
+```http
+DELETE https://api.logup.co/1_0/subscription/{id_subscription}/db HTTP/1.1
+Host: api.logup.co
+Content-Type: application/json
+Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
+
+```
+
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Authorization': 'Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
+
+
+};
+
+
+$.ajax({
+  url: 'https://api.logup.co/1_0/subscription/{id_subscription}/db',
+  method: 'delete',
+
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+
+```
+
+
+```javascript--nodejs
+const request = require('node-fetch');
+const inputBody = '{
+  "keys": [
+    "name",
+    "age"
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Authorization': Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
+
+
+};
+
+
+fetch('https://api.logup.co/1_0/subscription/{id_subscription}/db',
+{
+  method: 'DELETE',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+
+```
+
+
+```ruby
+require 'rest-client'
+require 'json'
+
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Authorization' => Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
+}
+
+
+result = RestClient.delete 'https://api.logup.co/1_0/subscription/{id_subscription}/db',
+  params: {
+  }, headers: headers
+
+
+p JSON.parse(result)
+
+
+```
+
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Authorization': Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
+}
+
+
+r = requests.delete('https://api.logup.co/1_0/subscription/{id_subscription}/db', params={
+
+
+}, headers = headers)
+
+
+print r.json()
+
+
+```
+
+
+```java
+URL obj = new URL("https://api.logup.co/1_0/subscription/{id_subscription}/db");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+
+```
+
+
+`DELETE /subscription/{id_subscription}/db`
+
+Delete db values associated with the subscription path parameter.
+
+
+> Body parameter
+
+
+```json
+{
+  "keys": [
+    "name",
+    "age"
+  ]
+}
+```
+
+
+<h3 id="Delete_subscription_db_values-parameters">Parameters</h3>
+
+
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|id_subscription|path|string|true|Subscription's id you want to manage|
+|keys|body|array[string]|true|List of keys you want to delete|
+
+<h3 id="Delete_subscription_db_values-responses">Responses</h3>
+Subscription db values deleted.
 
 # Verification
 
