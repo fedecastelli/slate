@@ -288,7 +288,7 @@ after the gate creation. Remember to never expose your keys in any public websit
 All API responses is in JSON format. </p>
 
 <p>Base URLs:
-<a href="https://api.logup.co/v1_0">https://api.logup.co/v1_0</a></p>
+<a href="https://api.logup.co/v1_1">https://api.logup.co/v1_1</a></p>
 <h1 id='authentication'>Authentication</h1>
 <p>This API supports two modes of authentication:
 <ul>
@@ -305,12 +305,12 @@ Retrieve the OAuth Access token to be used as HTTP Authentication Header. </p>
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.logup.co/v1_0/oauth/token <span class="se">\</span>
+curl -X POST https://api.logup.co/v1_1/oauth/token <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span>
 
 
-</code></pre><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.logup.co/v1_0/oauth/token</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.logup.co/v1_1/oauth/token</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.logup.co</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
@@ -325,7 +325,7 @@ curl -X POST https://api.logup.co/v1_0/oauth/token <span class="se">\</span>
 
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.logup.co/v1_0/oauth/token'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.logup.co/v1_1/oauth/token'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'post'</span><span class="p">,</span>
 
 
@@ -350,7 +350,7 @@ curl -X POST https://api.logup.co/v1_0/oauth/token <span class="se">\</span>
 <span class="p">};</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/v1_0/oauth/token'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/v1_1/oauth/token'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
@@ -373,7 +373,7 @@ curl -X POST https://api.logup.co/v1_0/oauth/token <span class="se">\</span>
 <span class="p">}</span>
 
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.logup.co/v1_0/oauth/token'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.logup.co/v1_1/oauth/token'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -388,7 +388,7 @@ curl -X POST https://api.logup.co/v1_0/oauth/token <span class="se">\</span>
 <span class="p">}</span>
 
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.logup.co/v1_0/oauth/token'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.logup.co/v1_1/oauth/token'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
@@ -397,7 +397,7 @@ curl -X POST https://api.logup.co/v1_0/oauth/token <span class="se">\</span>
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/v1_0/oauth/token"</span><span class="o">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/v1_1/oauth/token"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -506,11 +506,11 @@ update db values and delete db values.</p>
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X PUT https://api.logup.co/v1_0/subscription/<span class="o">{</span>id_subscription<span class="o">}</span>/db <span class="se">\</span>
+curl -X PUT https://api.logup.co/v1_1/subscription/<span class="o">{</span>id_subscription<span class="o">}</span>/db <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span>
   -H <span class="s1">'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
-</code></pre><pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">https://api.logup.co/v1_0/subscription/{id_subscription}/db</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">https://api.logup.co/v1_1/subscription/{id_subscription}/db</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.logup.co</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
@@ -525,7 +525,7 @@ curl -X PUT https://api.logup.co/v1_0/subscription/<span class="o">{</span>id_su
 
 
 $.ajax({
-  url: '</span><span class="na">https</span><span class="p">:</span><span class="c1">//api.logup.co/v1_0/subscription/{id_subscription}/db',</span>
+  url: '</span><span class="na">https</span><span class="p">:</span><span class="c1">//api.logup.co/v1_1/subscription/{id_subscription}/db',</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'put'</span><span class="p">,</span>
 
 
@@ -561,7 +561,7 @@ $.ajax({
 <span class="p">};</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/v1_0/subscription/{id_subscription}/db'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/v1_1/subscription/{id_subscription}/db'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'PUT'</span><span class="p">,</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
@@ -585,7 +585,7 @@ $.ajax({
 <span class="p">}</span>
 
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">put</span> <span class="s1">'https://api.logup.co/v1_0/subscription/{id_subscription}/db'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">put</span> <span class="s1">'https://api.logup.co/v1_1/subscription/{id_subscription}/db'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -601,7 +601,7 @@ $.ajax({
 </span><span class="s">}</span><span class="err">
 
 
-</span><span class="s">r = requests.put('</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">logup</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">v1_0</span><span class="o">/</span><span class="n">subscription</span><span class="o">/</span><span class="p">{</span><span class="n">id_subscription</span><span class="p">}</span><span class="o">/</span><span class="n">db</span><span class="s">', params={</span><span class="err">
+</span><span class="s">r = requests.put('</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">logup</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">v1_1</span><span class="o">/</span><span class="n">subscription</span><span class="o">/</span><span class="p">{</span><span class="n">id_subscription</span><span class="p">}</span><span class="o">/</span><span class="n">db</span><span class="s">', params={</span><span class="err">
 
 
 </span><span class="s">}, headers = headers)</span><span class="err">
@@ -610,7 +610,7 @@ $.ajax({
 </span><span class="s">print r.json()</span><span class="err">
 
 
-</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/v1_0/subscription/{id_subscription}/db"</span><span class="o">);</span>
+</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/v1_1/subscription/{id_subscription}/db"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"PUT"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -775,10 +775,10 @@ The are some limitations:
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X GET https://api.logup.co/v1_0/subscription/<span class="o">{</span>id_subscription<span class="o">}</span>/db <span class="se">\</span>
+curl -X GET https://api.logup.co/v1_1/subscription/<span class="o">{</span>id_subscription<span class="o">}</span>/db <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span><span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
-</code></pre><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://api.logup.co/v1_0/subscription/{id_subscription}/db</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://api.logup.co/v1_1/subscription/{id_subscription}/db</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.logup.co</span>
 
 Accept: application/json
@@ -792,7 +792,7 @@ Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
 
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.logup.co/v1_0/subscription/{id_subscription}/db'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.logup.co/v1_1/subscription/{id_subscription}/db'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'get'</span><span class="p">,</span>
 
 
@@ -812,7 +812,7 @@ Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
 <span class="p">};</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/v1_0/subscription/{id_subscription}/db'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/v1_1/subscription/{id_subscription}/db'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 
@@ -836,7 +836,7 @@ Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
 <span class="p">}</span>
 
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api.logup.co/v1_0/subscription/{id_subscription}/db'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api.logup.co/v1_1/subscription/{id_subscription}/db'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -848,7 +848,7 @@ Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
 <span class="p">}</span>
 
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.logup.co/v1_0/subscription/{id_subscription}/db'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.logup.co/v1_1/subscription/{id_subscription}/db'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
@@ -857,7 +857,7 @@ Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/v1_0/subscription/{id_subscription}/db"</span><span class="o">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/v1_1/subscription/{id_subscription}/db"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -924,12 +924,12 @@ set the keys query parameters and one of the key does not exist in our DB, that 
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X DELETE https://api.logup.co/v1_0/subscription/<span class="o">{</span>id_subscription<span class="o">}</span>/db <span class="se">\</span>
+curl -X DELETE https://api.logup.co/v1_1/subscription/<span class="o">{</span>id_subscription<span class="o">}</span>/db <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span> 
 
 
-</code></pre><pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">https://api.logup.co/v1_0/subscription/{id_subscription}/db</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">https://api.logup.co/v1_1/subscription/{id_subscription}/db</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.logup.co</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS</span>
@@ -943,7 +943,7 @@ curl -X DELETE https://api.logup.co/v1_0/subscription/<span class="o">{</span>id
 
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.logup.co/v1_0/subscription/{id_subscription}/db'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.logup.co/v1_1/subscription/{id_subscription}/db'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'delete'</span><span class="p">,</span>
 
 
@@ -969,7 +969,7 @@ curl -X DELETE https://api.logup.co/v1_0/subscription/<span class="o">{</span>id
 };
 
 
-fetch('</span><span class="na">https</span><span class="p">:</span><span class="c1">//api.logup.co/v1_0/subscription/{id_subscription}/db',</span>
+fetch('</span><span class="na">https</span><span class="p">:</span><span class="c1">//api.logup.co/v1_1/subscription/{id_subscription}/db',</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'DELETE'</span><span class="p">,</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
@@ -992,7 +992,7 @@ fetch('</span><span class="na">https</span><span class="p">:</span><span class="
 }
 
 
-result = RestClient.delete '</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">api</span><span class="p">.</span><span class="nf">logup</span><span class="p">.</span><span class="nf">co</span><span class="o">/</span><span class="n">v1_0</span><span class="o">/</span><span class="n">subscription</span><span class="o">/</span><span class="p">{</span><span class="n">id_subscription</span><span class="p">}</span><span class="o">/</span><span class="n">db</span><span class="err">'</span><span class="p">,</span>
+result = RestClient.delete '</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">api</span><span class="p">.</span><span class="nf">logup</span><span class="p">.</span><span class="nf">co</span><span class="o">/</span><span class="n">v1_1</span><span class="o">/</span><span class="n">subscription</span><span class="o">/</span><span class="p">{</span><span class="n">id_subscription</span><span class="p">}</span><span class="o">/</span><span class="n">db</span><span class="err">'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -1007,7 +1007,7 @@ result = RestClient.delete '</span><span class="n">https</span><span class="ss">
 </span><span class="s">}</span><span class="err">
 
 
-</span><span class="s">r = requests.delete('</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">logup</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">v1_0</span><span class="o">/</span><span class="n">subscription</span><span class="o">/</span><span class="p">{</span><span class="n">id_subscription</span><span class="p">}</span><span class="o">/</span><span class="n">db</span><span class="s">', params={</span><span class="err">
+</span><span class="s">r = requests.delete('</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">logup</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">v1_1</span><span class="o">/</span><span class="n">subscription</span><span class="o">/</span><span class="p">{</span><span class="n">id_subscription</span><span class="p">}</span><span class="o">/</span><span class="n">db</span><span class="s">', params={</span><span class="err">
 
 
 </span><span class="s">}, headers = headers)</span><span class="err">
@@ -1016,7 +1016,7 @@ result = RestClient.delete '</span><span class="n">https</span><span class="ss">
 </span><span class="s">print r.json()</span><span class="err">
 
 
-</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/v1_0/subscription/{id_subscription}/db"</span><span class="o">);</span>
+</span></code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/v1_1/subscription/{id_subscription}/db"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"DELETE"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -1087,11 +1087,11 @@ This logupToken is generated when the user finished his logup procedure.</p>
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.logup.co/v1_0/verification <span class="se">\</span>
+curl -X POST https://api.logup.co/v1_1/verification <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span>
   -H <span class="s1">'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'</span>
-</code></pre><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.logup.co/v1_0/verification</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.logup.co/v1_1/verification</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.logup.co</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
@@ -1104,7 +1104,7 @@ curl -X POST https://api.logup.co/v1_0/verification <span class="se">\</span>
 
 
 $.ajax({
-  url: '</span><span class="na">https</span><span class="p">:</span><span class="c1">//api.logup.co/v1_0/verification',</span>
+  url: '</span><span class="na">https</span><span class="p">:</span><span class="c1">//api.logup.co/v1_1/verification',</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'post'</span><span class="p">,</span>
 
   <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
@@ -1125,7 +1125,7 @@ $.ajax({
 <span class="p">};</span>
 
 
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/v1_0/verification'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.logup.co/v1_1/verification'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
@@ -1149,7 +1149,7 @@ $.ajax({
 <span class="p">}</span>
 
 
-<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.logup.co/v1_0/verification'</span><span class="p">,</span>
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.logup.co/v1_1/verification'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
   <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -1162,7 +1162,7 @@ $.ajax({
 <span class="p">}</span>
 
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.logup.co/v1_0/verification'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.logup.co/v1_1/verification'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
 
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
@@ -1171,7 +1171,7 @@ $.ajax({
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 
-</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/v1_0/verification"</span><span class="o">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.logup.co/v1_1/verification"</span><span class="o">);</span>
 <span class="n">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
