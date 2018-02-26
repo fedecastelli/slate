@@ -29,7 +29,7 @@ after the gate creation. Remember to never expose your keys in any public websit
 All API responses is in JSON format. 
 
 Base URLs:
-<a href="https://api.logup.co/v1_0">https://api.logup.co/v1_0</a>
+<a href="https://api.logup.co/v1_1">https://api.logup.co/v1_1</a>
 
 
 # Authentication
@@ -55,7 +55,7 @@ Retrieve the OAuth Access token to be used as HTTP Authentication Header.
 
 ```shell
 # You can also use wget
-curl -X POST https://api.logup.co/v1_0/oauth/token \
+curl -X POST https://api.logup.co/v1_1/oauth/token \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
@@ -64,7 +64,7 @@ curl -X POST https://api.logup.co/v1_0/oauth/token \
 
 
 ```http
-POST https://api.logup.co/v1_0/oauth/token HTTP/1.1
+POST https://api.logup.co/v1_1/oauth/token HTTP/1.1
 Host: api.logup.co
 Content-Type: application/json
 Accept: application/json
@@ -83,7 +83,7 @@ var headers = {
 
 
 $.ajax({
-  url: 'https://api.logup.co/v1_0/oauth/token',
+  url: 'https://api.logup.co/v1_1/oauth/token',
   method: 'post',
 
 
@@ -112,7 +112,7 @@ const headers = {
 };
 
 
-fetch('https://api.logup.co/v1_0/oauth/token',
+fetch('https://api.logup.co/v1_1/oauth/token',
 {
   method: 'POST',
   body: inputBody,
@@ -139,7 +139,7 @@ headers = {
 }
 
 
-result = RestClient.post 'https://api.logup.co/v1_0/oauth/token',
+result = RestClient.post 'https://api.logup.co/v1_1/oauth/token',
   params: {
   }, headers: headers
 
@@ -158,7 +158,7 @@ headers = {
 }
 
 
-r = requests.post('https://api.logup.co/v1_0/oauth/token', params={
+r = requests.post('https://api.logup.co/v1_1/oauth/token', params={
 
 
 }, headers = headers)
@@ -171,7 +171,7 @@ print r.json()
 
 
 ```java
-URL obj = new URL("https://api.logup.co/v1_0/oauth/token");
+URL obj = new URL("https://api.logup.co/v1_1/oauth/token");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -281,7 +281,7 @@ update db values and delete db values.
 
 ```shell
 # You can also use wget
-curl -X PUT https://api.logup.co/v1_0/subscription/{id_subscription}/db \
+curl -X PUT https://api.logup.co/v1_1/subscription/{id_subscription}/db \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
   -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
@@ -289,7 +289,7 @@ curl -X PUT https://api.logup.co/v1_0/subscription/{id_subscription}/db \
 
 
 ```http
-PUT https://api.logup.co/v1_0/subscription/{id_subscription}/db HTTP/1.1
+PUT https://api.logup.co/v1_1/subscription/{id_subscription}/db HTTP/1.1
 Host: api.logup.co
 Content-Type: application/json
 Accept: application/json
@@ -308,7 +308,7 @@ var headers = {
 
 
 $.ajax({
-  url: 'https://api.logup.co/v1_0/subscription/{id_subscription}/db',
+  url: 'https://api.logup.co/v1_1/subscription/{id_subscription}/db',
   method: 'put',
 
 
@@ -348,7 +348,7 @@ const headers = {
 };
 
 
-fetch('https://api.logup.co/v1_0/subscription/{id_subscription}/db',
+fetch('https://api.logup.co/v1_1/subscription/{id_subscription}/db',
 {
   method: 'PUT',
   body: inputBody,
@@ -376,7 +376,7 @@ headers = {
 }
 
 
-result = RestClient.put 'https://api.logup.co/v1_0/subscription/{id_subscription}/db',
+result = RestClient.put 'https://api.logup.co/v1_1/subscription/{id_subscription}/db',
   params: {
   }, headers: headers
 
@@ -396,7 +396,7 @@ headers = {
 }
 
 
-r = requests.put('https://api.logup.co/v1_0/subscription/{id_subscription}/db', params={
+r = requests.put('https://api.logup.co/v1_1/subscription/{id_subscription}/db', params={
 
 
 }, headers = headers)
@@ -409,7 +409,7 @@ print r.json()
 
 
 ```java
-URL obj = new URL("https://api.logup.co/v1_0/subscription/{id_subscription}/db");
+URL obj = new URL("https://api.logup.co/v1_1/subscription/{id_subscription}/db");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PUT");
 int responseCode = con.getResponseCode();
@@ -519,14 +519,14 @@ Return subscription db values updated
 
 ```shell
 # You can also use wget
-curl -X GET https://api.logup.co/v1_0/subscription/{id_subscription}/db \
+curl -X GET https://api.logup.co/v1_1/subscription/{id_subscription}/db \
   -H 'Accept: application/json'\
   -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
 ```
 
 
 ```http
-GET https://api.logup.co/v1_0/subscription/{id_subscription}/db HTTP/1.1
+GET https://api.logup.co/v1_1/subscription/{id_subscription}/db HTTP/1.1
 Host: api.logup.co
 
 Accept: application/json
@@ -544,7 +544,7 @@ var headers = {
 
 
 $.ajax({
-  url: 'https://api.logup.co/v1_0/subscription/{id_subscription}/db',
+  url: 'https://api.logup.co/v1_1/subscription/{id_subscription}/db',
   method: 'get',
 
 
@@ -568,7 +568,7 @@ const headers = {
 };
 
 
-fetch('https://api.logup.co/v1_0/subscription/{id_subscription}/db',
+fetch('https://api.logup.co/v1_1/subscription/{id_subscription}/db',
 {
   method: 'GET',
 
@@ -596,7 +596,7 @@ headers = {
 }
 
 
-result = RestClient.get 'https://api.logup.co/v1_0/subscription/{id_subscription}/db',
+result = RestClient.get 'https://api.logup.co/v1_1/subscription/{id_subscription}/db',
   params: {
   }, headers: headers
   
@@ -612,7 +612,7 @@ headers = {
 }
 
 
-r = requests.get('https://api.logup.co/v1_0/subscription/{id_subscription}/db', params={
+r = requests.get('https://api.logup.co/v1_1/subscription/{id_subscription}/db', params={
 
 
 }, headers = headers)
@@ -625,7 +625,7 @@ print r.json()
 
 
 ```java
-URL obj = new URL("https://api.logup.co/v1_0/subscription/{id_subscription}/db");
+URL obj = new URL("https://api.logup.co/v1_1/subscription/{id_subscription}/db");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -685,7 +685,7 @@ Subscription db values loaded.
 
 ```shell
 # You can also use wget
-curl -X DELETE https://api.logup.co/v1_0/subscription/{id_subscription}/db \
+curl -X DELETE https://api.logup.co/v1_1/subscription/{id_subscription}/db \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS' 
 
@@ -694,7 +694,7 @@ curl -X DELETE https://api.logup.co/v1_0/subscription/{id_subscription}/db \
 
 
 ```http
-DELETE https://api.logup.co/v1_0/subscription/{id_subscription}/db HTTP/1.1
+DELETE https://api.logup.co/v1_1/subscription/{id_subscription}/db HTTP/1.1
 Host: api.logup.co
 Content-Type: application/json
 Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS
@@ -712,7 +712,7 @@ var headers = {
 
 
 $.ajax({
-  url: 'https://api.logup.co/v1_0/subscription/{id_subscription}/db',
+  url: 'https://api.logup.co/v1_1/subscription/{id_subscription}/db',
   method: 'delete',
 
 
@@ -742,7 +742,7 @@ const headers = {
 };
 
 
-fetch('https://api.logup.co/v1_0/subscription/{id_subscription}/db',
+fetch('https://api.logup.co/v1_1/subscription/{id_subscription}/db',
 {
   method: 'DELETE',
   body: inputBody,
@@ -769,7 +769,7 @@ headers = {
 }
 
 
-result = RestClient.delete 'https://api.logup.co/v1_0/subscription/{id_subscription}/db',
+result = RestClient.delete 'https://api.logup.co/v1_1/subscription/{id_subscription}/db',
   params: {
   }, headers: headers
 
@@ -788,7 +788,7 @@ headers = {
 }
 
 
-r = requests.delete('https://api.logup.co/v1_0/subscription/{id_subscription}/db', params={
+r = requests.delete('https://api.logup.co/v1_1/subscription/{id_subscription}/db', params={
 
 
 }, headers = headers)
@@ -801,7 +801,7 @@ print r.json()
 
 
 ```java
-URL obj = new URL("https://api.logup.co/v1_0/subscription/{id_subscription}/db");
+URL obj = new URL("https://api.logup.co/v1_1/subscription/{id_subscription}/db");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -866,7 +866,7 @@ This logupToken is generated when the user finished his logup procedure.
 
 ```shell
 # You can also use wget
-curl -X POST https://api.logup.co/v1_0/verification \
+curl -X POST https://api.logup.co/v1_1/verification \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
   -H 'Authorization: Bearer authToken_test_vuNeT21HiKDPRuhzQwcDSvSS'
@@ -874,7 +874,7 @@ curl -X POST https://api.logup.co/v1_0/verification \
 
 
 ```http
-POST https://api.logup.co/v1_0/verification HTTP/1.1
+POST https://api.logup.co/v1_1/verification HTTP/1.1
 Host: api.logup.co
 Content-Type: application/json
 Accept: application/json
@@ -891,7 +891,7 @@ var headers = {
 
 
 $.ajax({
-  url: 'https://api.logup.co/v1_0/verification',
+  url: 'https://api.logup.co/v1_1/verification',
   method: 'post',
 
   headers: headers,
@@ -916,7 +916,7 @@ const headers = {
 };
 
 
-fetch('https://api.logup.co/v1_0/verification',
+fetch('https://api.logup.co/v1_1/verification',
 {
   method: 'POST',
   body: inputBody,
@@ -944,7 +944,7 @@ headers = {
 }
 
 
-result = RestClient.post 'https://api.logup.co/v1_0/verification',
+result = RestClient.post 'https://api.logup.co/v1_1/verification',
   params: {
   }, headers: headers
 
@@ -961,7 +961,7 @@ headers = {
 }
 
 
-r = requests.post('https://api.logup.co/v1_0/verification', params={
+r = requests.post('https://api.logup.co/v1_1/verification', params={
 
 
 }, headers = headers)
@@ -974,7 +974,7 @@ print r.json()
 
 
 ```java
-URL obj = new URL("https://api.logup.co/v1_0/verification");
+URL obj = new URL("https://api.logup.co/v1_1/verification");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
